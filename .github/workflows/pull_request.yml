@@ -12,9 +12,26 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
+    - name: echo npm version before
+      id: echo-version-before
+      run: |
+        echo "VERSION IS CURRENTLY"
+        echo "$VERSION"
+      env:
+        VERSION: ${{ steps.package-version.outputs.current-version}}
     - name: Install dependencies
       run: yarn
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx semantic-release
+    - name: get-npm-version
+      id: package-version
+      uses: martinbeentjes/npm-get-version-action@master
+    - name: echo npm version after
+      id: echo-version-after
+      run: |
+        echo "VERSION IS CURRENTLY"
+        echo "$VERSION"
+      env:
+        VERSION: ${{ steps.package-version.outputs.current-version}}
