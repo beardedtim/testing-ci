@@ -12,4 +12,5 @@ jobs:
         echo "running"
         echo "$GITHUB_RUN_ID"
         echo "ran"
+        echo "even again"
       id: build-image
