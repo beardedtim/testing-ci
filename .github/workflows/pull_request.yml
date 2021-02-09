@@ -9,8 +9,12 @@ jobs:
     steps:
 
     - run: |
-        echo "running"
+        echo "GITHUB_RUN_ID"
         echo "$GITHUB_RUN_ID"
-        echo "ran"
-        echo "even again"
+        echo ""
+        echo "GITHUB_RUN_NUMBER"
+        echo "$GITHUB_RUN_NUMBER"
+        echo ""
+        echo "GITHUB_SHA"
+        echo "$GITHUB_SHA"
       id: build-image
