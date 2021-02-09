@@ -9,6 +9,8 @@ jobs:
     steps:
 
     - run: |
+        echo "All default values that we might want to use"
+        echo ""
         echo "GITHUB_RUN_ID"
         echo "$GITHUB_RUN_ID"
         echo ""
