@@ -10,6 +10,6 @@ jobs:
 
     - run: |
         echo "running"
-        echo "$GITHUB_RUN_NUMBER"
+        echo "$GITHUB_RUN_ID"
         echo "ran"
       id: build-image
