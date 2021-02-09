@@ -1,6 +1,6 @@
 {
   "name": "testing-ci",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "main": "index.js",
   "repository": "git@github.com:beardedtim/testing-ci.git",
   "author": "Tim Roberts <timiroberts@gmail.com>",
