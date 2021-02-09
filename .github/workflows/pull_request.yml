@@ -1,14 +1,20 @@
 name: Pull Request
-
 on:
-  pull_request:
+  push:
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-
-    - run: echo $IMAGE_TAG
-      id: Echo Image Tag
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
       with:
-        IMAGE_TAG: ${{ env.GITHUB_RUN_NUMBER }}
+        node-version: 14
+    - name: Install dependencies
+      run: yarn
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx semantic-release --dry-run

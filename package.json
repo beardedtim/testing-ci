@@ -1,0 +1,12 @@
+{
+  "name": "testing-ci",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:beardedtim/testing-ci.git",
+  "author": "Tim Roberts <timiroberts@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@semantic-release/git": "^9.0.0",
+    "semantic-release": "^17.3.8"
+  }
+}
