@@ -10,6 +10,7 @@ jobs:
 
     - run: |
         echo "$IMAGE_TAG"
+        echo "again"
       id: build-image
       env:
         IMAGE_TAG: ${{ env.GITHUB_RUN_NUMBER	 }}
