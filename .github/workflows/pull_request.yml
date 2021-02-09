@@ -12,13 +12,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
+    - name: get-npm-version-before
+      id: package-version-before
+      uses: martinbeentjes/npm-get-version-action@master
     - name: echo npm version before
       id: echo-version-before
       run: |
         echo "VERSION IS CURRENTLY"
         echo "$VERSION"
       env:
-        VERSION: ${{ steps.package-version.outputs.current-version}}
+        VERSION: ${{ steps.package-version-before.outputs.current-version}}
     - name: Install dependencies
       run: yarn
     - name: Release
