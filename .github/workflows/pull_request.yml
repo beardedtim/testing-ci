@@ -1,5 +1,4 @@
 name: Pull Request
-
 on:
   pull_request:
 
@@ -7,16 +6,15 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-
-    - run: |
-        echo "All default values that we might want to use"
-        echo ""
-        echo "GITHUB_RUN_ID"
-        echo "$GITHUB_RUN_ID"
-        echo ""
-        echo "GITHUB_RUN_NUMBER"
-        echo "$GITHUB_RUN_NUMBER"
-        echo ""
-        echo "GITHUB_SHA"
-        echo "$GITHUB_SHA"
-      id: build-image
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: Install dependencies
+      run: yarn
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx semantic-release
